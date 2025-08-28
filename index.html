@@ -180,8 +180,6 @@
             text-align: center;
             border: 2px solid #4a4aff;
             transition: transform 0.3s ease;
-            min-height: 100px;
-            cursor: pointer;
         }
 
         .stat-box:hover {
@@ -440,6 +438,22 @@
             margin-bottom: 15px;
         }
 
+        /* Touch-friendly interactive elements */
+        .stat-box {
+            min-height: 100px;
+            cursor: pointer;
+        }
+
+        /* Improved readability */
+        .comparison p {
+            margin: 8px 0;
+        }
+
+        .comparison em {
+            font-style: normal;
+            opacity: 0.9;
+        }
+
         /* Better spacing for mobile */
         .wizard-quote p:first-of-type {
             font-size: clamp(18px, 5.5vw, 22px);
@@ -561,41 +575,51 @@
         </div>
     </div>
 
-    <!-- PERSONALIZED TIME REALITY -->
+    <!-- ON-TIME CALCULATOR -->
     <div class="section">
         <div class="solution">
-            <h2 style="color: #00ffff;">🎯 YOUR PERSONAL TIME REALITY</h2>
+            <h2 style="color: #66ff66;">🔍 YOUR ON-TIME™ CALCULATOR</h2>
             
-            <h3>Your Real-Time Token Dashboard</h3>
-            <p style="text-align: center; margin: 25px 0; font-size: clamp(16px, 4.5vw, 18px);">
-                <strong>Based on your actual schedule and live countdown...<br>
-                These are YOUR opportunity tokens.</strong>
+            <h3>Discover Your Daily Opportunity Tokens</h3>
+            <p style="text-align: center; margin: 25px 0; color: #ffff00; font-size: clamp(16px, 4.5vw, 18px);">
+                <strong>Find out exactly how many ON-TIME™ tokens you have available!</strong>
             </p>
             
-            <div class="token-display">🪙 1,440 → 0 🪙</div>
-            
-            <div class="stats">
-                <div class="stat-box">
-                    <div class="stat-number" id="revolutionDaily">649</div>
-                    <p>Minutes Remaining Today</p>
+            <div style="background: linear-gradient(135deg, #003300, #004400); padding: 30px 20px; border-radius: 15px; margin: 30px 0; border: 2px solid #66ff66; box-shadow: 0 0 30px rgba(102, 255, 102, 0.3);">
+                <div style="display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 400px; margin: 0 auto;">
+                    <div>
+                        <label style="display: block; color: #66ff66; font-size: clamp(14px, 4vw, 16px); margin-bottom: 8px; font-weight: bold;">Sleep Hours per Day:</label>
+                        <input type="number" id="sleepHours" min="4" max="12" value="7" style="width: 100%; padding: 12px; border: 2px solid #66ff66; border-radius: 8px; background: #001100; color: white; font-size: clamp(16px, 4.5vw, 18px); text-align: center;">
+                        <p style="color: #aaa; font-size: clamp(12px, 3.5vw, 13px); margin-top: 5px; text-align: center;">Minutes: <span id="sleepMinutes">420</span></p>
+                    </div>
+                    
+                    <div>
+                        <label style="display: block; color: #66ff66; font-size: clamp(14px, 4vw, 16px); margin-bottom: 8px; font-weight: bold;">Work + Commute Hours per Day:</label>
+                        <input type="number" id="workHours" min="0" max="16" value="0" step="0.5" style="width: 100%; padding: 12px; border: 2px solid #66ff66; border-radius: 8px; background: #001100; color: white; font-size: clamp(16px, 4.5vw, 18px); text-align: center;">
+                        <p style="color: #aaa; font-size: clamp(12px, 3.5vw, 13px); margin-top: 5px; text-align: center;">Minutes: <span id="workMinutes">0</span></p>
+                    </div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number" id="revolutionWeekly">4,740</div>
-                    <p>Your Weekly Token Budget</p>
+                
+                <div style="text-align: center; margin: 30px 0;">
+                    <div style="background: linear-gradient(135deg, #004400, #006600); padding: 25px 20px; border-radius: 12px; border: 2px solid #88ff88; box-shadow: 0 0 25px rgba(136, 255, 136, 0.4);">
+                        <h3 style="color: #88ff88; margin-bottom: 15px; font-size: clamp(18px, 5.5vw, 24px);">Your Daily ON-TIME™ Tokens:</h3>
+                        <div id="ontimeTokens" style="font-size: clamp(48px, 12vw, 72px); color: #ffff00; text-shadow: 0 0 30px #ffff00; font-weight: bold; margin: 15px 0;">1020</div>
+                        <p style="color: #aaa; font-size: clamp(14px, 4vw, 16px);">
+                            That's <span id="ontimeHours" style="color: #88ff88; font-weight: bold;">17.0</span> hours of pure opportunity per day!
+                        </p>
+                        <p style="color: #66ff66; font-size: clamp(16px, 4.5vw, 18px); font-weight: bold; margin-top: 15px;">
+                            Weekly ON-TIME™ Budget: <span id="weeklyTokens" style="color: #ffff00;">4,440</span> tokens
+                        </p>
+                        <p style="color: #aaa; font-size: clamp(12px, 3.5vw, 13px); margin-top: 10px; font-style: italic;">
+                            *Based on 5 work days + 2 days off (weekends assume same sleep hours, no work)
+                        </p>
+                    </div>
                 </div>
-                <div class="stat-box">
-                    <div class="stat-number" id="revolutionMonthly">20,524</div>
-                    <p>Your Monthly Token Budget</p>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number" id="revolutionAnnual">246,480</div>
-                    <p>Your Annual Token Investment</p>
-                </div>
+                
+                <p style="text-align: center; color: #ffccff; font-size: clamp(14px, 4vw, 16px); margin-top: 20px;">
+                    <strong>Now you know exactly how many opportunity tokens you have to invest!</strong>
+                </p>
             </div>
-            
-            <p style="text-align: center; margin: 30px 0; color: #aaa; font-style: italic;">
-                ↑ Personalized Based on Your Calculator Input
-            </p>
         </div>
     </div>
 
@@ -661,54 +685,6 @@
                 <strong>Use AI for:</strong> Writing • Coding • Research • Planning<br>
                 <strong>While others think in hours, you accelerate with tokens!</strong>
             </p>
-        </div>
-    </div>
-
-    <!-- ON-TIME CALCULATOR -->
-    <div class="section">
-        <div class="solution">
-            <h2 style="color: #66ff66;">🔍 YOUR ON-TIME™ CALCULATOR</h2>
-            
-            <h3>Discover Your Daily Opportunity Tokens</h3>
-            <p style="text-align: center; margin: 25px 0; color: #ffff00; font-size: clamp(16px, 4.5vw, 18px);">
-                <strong>Find out exactly how many ON-TIME™ tokens you have available!</strong>
-            </p>
-            
-            <div style="background: linear-gradient(135deg, #003300, #004400); padding: 30px 20px; border-radius: 15px; margin: 30px 0; border: 2px solid #66ff66; box-shadow: 0 0 30px rgba(102, 255, 102, 0.3);">
-                <div style="display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 400px; margin: 0 auto;">
-                    <div>
-                        <label style="display: block; color: #66ff66; font-size: clamp(14px, 4vw, 16px); margin-bottom: 8px; font-weight: bold;">Sleep Hours per Day:</label>
-                        <input type="number" id="sleepHours" min="4" max="12" value="7" style="width: 100%; padding: 12px; border: 2px solid #66ff66; border-radius: 8px; background: #001100; color: white; font-size: clamp(16px, 4.5vw, 18px); text-align: center;">
-                        <p style="color: #aaa; font-size: clamp(12px, 3.5vw, 13px); margin-top: 5px; text-align: center;">Minutes: <span id="sleepMinutes">420</span></p>
-                    </div>
-                    
-                    <div>
-                        <label style="display: block; color: #66ff66; font-size: clamp(14px, 4vw, 16px); margin-bottom: 8px; font-weight: bold;">Work + Commute Hours per Day:</label>
-                        <input type="number" id="workHours" min="0" max="16" value="0" step="0.5" style="width: 100%; padding: 12px; border: 2px solid #66ff66; border-radius: 8px; background: #001100; color: white; font-size: clamp(16px, 4.5vw, 18px); text-align: center;">
-                        <p style="color: #aaa; font-size: clamp(12px, 3.5vw, 13px); margin-top: 5px; text-align: center;">Minutes: <span id="workMinutes">0</span></p>
-                    </div>
-                </div>
-                
-                <div style="text-align: center; margin: 30px 0;">
-                    <div style="background: linear-gradient(135deg, #004400, #006600); padding: 25px 20px; border-radius: 12px; border: 2px solid #88ff88; box-shadow: 0 0 25px rgba(136, 255, 136, 0.4);">
-                        <h3 style="color: #88ff88; margin-bottom: 15px; font-size: clamp(18px, 5.5vw, 24px);">Your Daily ON-TIME™ Tokens:</h3>
-                        <div id="ontimeTokens" style="font-size: clamp(48px, 12vw, 72px); color: #ffff00; text-shadow: 0 0 30px #ffff00; font-weight: bold; margin: 15px 0;">1020</div>
-                        <p style="color: #aaa; font-size: clamp(14px, 4vw, 16px);">
-                            That's <span id="ontimeHours" style="color: #88ff88; font-weight: bold;">17.0</span> hours of pure opportunity per day!
-                        </p>
-                        <p style="color: #66ff66; font-size: clamp(16px, 4.5vw, 18px); font-weight: bold; margin-top: 15px;">
-                            Weekly ON-TIME™ Budget: <span id="weeklyTokens" style="color: #ffff00;">4,440</span> tokens
-                        </p>
-                        <p style="color: #aaa; font-size: clamp(12px, 3.5vw, 13px); margin-top: 10px; font-style: italic;">
-                            *Based on 5 work days + 2 days off (weekends assume same sleep hours, no work)
-                        </p>
-                    </div>
-                </div>
-                
-                <p style="text-align: center; color: #ffccff; font-size: clamp(14px, 4vw, 16px); margin-top: 20px;">
-                    <strong>Now you know exactly how many opportunity tokens you have to invest!</strong>
-                </p>
-            </div>
         </div>
     </div>
 
@@ -875,7 +851,12 @@
             
             document.getElementById('countdown').textContent = minutesLeft;
             document.getElementById('finalCountdown').textContent = minutesLeft + ' tokens remaining today';
-            document.getElementById('revolutionDaily').textContent = minutesLeft;
+            
+            // Only update if element exists
+            const revolutionDaily = document.getElementById('revolutionDaily');
+            if (revolutionDaily) {
+                revolutionDaily.textContent = minutesLeft;
+            }
         }
 
         // ON-TIME Calculator functionality
@@ -899,26 +880,45 @@
             const weeklyAI = Math.round(weeklyTokens * 0.2);
             
             // Update ON-TIME calculator display
-            document.getElementById('sleepMinutes').textContent = sleepMinutes;
-            document.getElementById('workMinutes').textContent = workMinutes;
-            document.getElementById('ontimeTokens').textContent = Math.max(0, ontimeMinutes);
-            document.getElementById('ontimeHours').textContent = Math.max(0, ontimeHours);
-            document.getElementById('weeklyTokens').textContent = Math.max(0, weeklyTokens).toLocaleString();
-            document.getElementById('dailyAI').textContent = Math.max(0, dailyAI);
-            document.getElementById('weeklyAI').textContent = Math.max(0, weeklyAI).toLocaleString();
+            const sleepMinutesEl = document.getElementById('sleepMinutes');
+            const workMinutesEl = document.getElementById('workMinutes');
+            const ontimeTokensEl = document.getElementById('ontimeTokens');
+            const ontimeHoursEl = document.getElementById('ontimeHours');
+            const weeklyTokensEl = document.getElementById('weeklyTokens');
+            const dailyAIEl = document.getElementById('dailyAI');
+            const weeklyAIEl = document.getElementById('weeklyAI');
+            
+            if (sleepMinutesEl) sleepMinutesEl.textContent = sleepMinutes;
+            if (workMinutesEl) workMinutesEl.textContent = workMinutes;
+            if (ontimeTokensEl) ontimeTokensEl.textContent = Math.max(0, ontimeMinutes);
+            if (ontimeHoursEl) ontimeHoursEl.textContent = Math.max(0, ontimeHours);
+            if (weeklyTokensEl) weeklyTokensEl.textContent = Math.max(0, weeklyTokens).toLocaleString();
+            if (dailyAIEl) dailyAIEl.textContent = Math.max(0, dailyAI);
+            if (weeklyAIEl) weeklyAIEl.textContent = Math.max(0, weeklyAI).toLocaleString();
             
             // Update Brutal Reality Check display
-            document.getElementById('brutalWeeklyTokens').textContent = Math.max(0, weeklyTokens).toLocaleString();
-            document.getElementById('brutalWorkHours').textContent = workHours;
-            document.getElementById('brutalSleepHours').textContent = sleepHours;
-            document.getElementById('brutalWeeklyDisplay').textContent = Math.max(0, weeklyTokens).toLocaleString();
-            document.getElementById('brutalHoursDisplay').textContent = Math.max(0, weeklyHours);
-            document.getElementById('brutalAIDisplay').textContent = Math.max(0, weeklyAI).toLocaleString();
+            const brutalWeeklyTokensEl = document.getElementById('brutalWeeklyTokens');
+            const brutalWorkHoursEl = document.getElementById('brutalWorkHours');
+            const brutalSleepHoursEl = document.getElementById('brutalSleepHours');
+            const brutalWeeklyDisplayEl = document.getElementById('brutalWeeklyDisplay');
+            const brutalHoursDisplayEl = document.getElementById('brutalHoursDisplay');
+            const brutalAIDisplayEl = document.getElementById('brutalAIDisplay');
+            
+            if (brutalWeeklyTokensEl) brutalWeeklyTokensEl.textContent = Math.max(0, weeklyTokens).toLocaleString();
+            if (brutalWorkHoursEl) brutalWorkHoursEl.textContent = workHours;
+            if (brutalSleepHoursEl) brutalSleepHoursEl.textContent = sleepHours;
+            if (brutalWeeklyDisplayEl) brutalWeeklyDisplayEl.textContent = Math.max(0, weeklyTokens).toLocaleString();
+            if (brutalHoursDisplayEl) brutalHoursDisplayEl.textContent = Math.max(0, weeklyHours);
+            if (brutalAIDisplayEl) brutalAIDisplayEl.textContent = Math.max(0, weeklyAI).toLocaleString();
             
             // Update Revolution section with live numbers (except daily which is real-time countdown)
-            document.getElementById('revolutionWeekly').textContent = Math.max(0, weeklyTokens).toLocaleString();
-            document.getElementById('revolutionMonthly').textContent = Math.max(0, Math.round(weeklyTokens * 4.33)).toLocaleString();
-            document.getElementById('revolutionAnnual').textContent = Math.max(0, weeklyTokens * 52).toLocaleString();
+            const revolutionWeeklyEl = document.getElementById('revolutionWeekly');
+            const revolutionMonthlyEl = document.getElementById('revolutionMonthly');
+            const revolutionAnnualEl = document.getElementById('revolutionAnnual');
+            
+            if (revolutionWeeklyEl) revolutionWeeklyEl.textContent = Math.max(0, weeklyTokens).toLocaleString();
+            if (revolutionMonthlyEl) revolutionMonthlyEl.textContent = Math.max(0, Math.round(weeklyTokens * 4.33)).toLocaleString();
+            if (revolutionAnnualEl) revolutionAnnualEl.textContent = Math.max(0, weeklyTokens * 52).toLocaleString();
         }
 
         // Add event listeners for calculator inputs
